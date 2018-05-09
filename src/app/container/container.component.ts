@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Container } from '../interface/container';
+import { Container } from '../interface/models';
 
 @Component({
   selector: 'app-container',
@@ -17,7 +17,7 @@ export class ContainerComponent implements OnInit {
   }
 
   public get title(): string {
-    return this.data.name+"@"+this.data.version;
+    return this.data.name + "@" + this.data.version;
   }
 
 }
