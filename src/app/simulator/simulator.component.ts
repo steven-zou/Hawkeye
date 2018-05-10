@@ -84,7 +84,7 @@ export class SimulatorComponent implements OnInit, OnDestroy {
         roundness: 0.5
       },
       selectionWidth: 2,
-      length: 300
+      length: 200
     };
 
     let nodeOptions: NodeOptions = {
@@ -155,6 +155,7 @@ export class SimulatorComponent implements OnInit, OnDestroy {
         // found it
         this.edges.remove(queryID);
         edge.to = to;
+        edge.id = this.myEdgeID(runtime.id, to)
         this.edges.add(edge);
         let node: Node = this.nodes.get(runtime.id);
         if (node) {
@@ -274,8 +275,8 @@ export class SimulatorComponent implements OnInit, OnDestroy {
             break;
         }
       });
-
-      this.network.redraw();
     }
+
+    this.network.fit();
   }
 }
